@@ -27,7 +27,7 @@ func sum(w http.ResponseWriter, req *http.Request) {
 	log.Printf("received request. content-length: %s", req.Header.Get("content-length"))
 	now := time.Now()
 	defer func() {
-		log.Printf("request completed. took=%s", now)
+		log.Printf("request completed. took=%s", time.Since(now))
 		req.Body.Close()
 	}()
 
